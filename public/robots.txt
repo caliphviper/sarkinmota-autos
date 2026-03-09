@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sarkinmota-autos.vercel.app/sitemap.xml
