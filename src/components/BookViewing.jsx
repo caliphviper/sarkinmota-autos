@@ -185,7 +185,7 @@ export default function BookViewing() {
                                 </div>
 
                                 {/* Date & Time row */}
-                                <div className="flex gap-3">
+                                <div className="flex flex-col md:flex-row gap-4">
                                     <div className="flex-1">
                                         <label
                                             className={`block font-rajdhani font-700 text-sm uppercase tracking-wide mb-1.5 ${isLight ? 'text-gray-700' : 'text-gray-300'

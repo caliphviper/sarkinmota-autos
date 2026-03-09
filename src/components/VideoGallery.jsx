@@ -97,8 +97,8 @@ export default function VideoGallery() {
                     </p>
                 </div>
 
-                {/* Video Grid — 3 columns of portrait videos */}
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                {/* Video Grid — 2 col mobile, 3 col desktop */}
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
                     {videos.map((video, i) => (
                         <motion.div
                             key={video.id}
@@ -113,28 +113,55 @@ export default function VideoGallery() {
                         >
                             {/* Thumbnail */}
                             {/* INSERT REAL TIKTOK EMBED or INSTAGRAM EMBED below */}
-                            <div className="w-full h-full overflow-hidden flex items-center justify-center bg-black/5">
-                                {video.platform === 'TikTok' ? (
-                                    <blockquote
-                                        className="tiktok-embed"
-                                        cite={video.url}
-                                        data-video-id=""
-                                        style={{ maxWidth: '605px', minWidth: '325px', height: '100%' }}
-                                    >
-                                        <section>
-                                            <a target="_blank" title="@alamin_sarkinmota" href="https://www.tiktok.com/@alamin_sarkinmota?refer=embed">@alamin_sarkinmota</a>
-                                        </section>
-                                    </blockquote>
-                                ) : (
-                                    <blockquote
-                                        className="instagram-media"
-                                        data-instgrm-captioned
-                                        data-instgrm-permalink={video.url}
-                                        data-instgrm-version="14"
-                                        style={{ background: '#FFF', border: '0', borderRadius: '3px', boxShadow: '0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15)', margin: '1px', maxWidth: '540px', minWidth: '326px', padding: '0', width: 'calc(100% - 2px)' }}
-                                    >
-                                    </blockquote>
-                                )}
+                            {/* 
+                                Responsive Scaling Container:
+                                Instagram/TikTok embeds have a min-width of ~326px.
+                                In a 2-col mobile grid, we scale the 326px content to fit the card.
+                            */}
+                            <div className="w-full relative bg-black/5" style={{ aspectRatio: '9/16' }}>
+                                <div
+                                    className="absolute inset-0 origin-top flex justify-center"
+                                    style={{
+                                        transform: 'scale(0.55)', // Precise scale for most mobile widths (375 * 0.45 / 326)
+                                        width: '326px',
+                                        left: '50%',
+                                        marginLeft: '-163px',
+                                        height: '100%',
+                                        overflow: 'visible'
+                                    }}
+                                >
+                                    <div className="w-[326px] h-full flex flex-col items-center sm:scale-100 md:scale-100">
+                                        <style dangerouslySetInnerHTML={{
+                                            __html: `
+                                            @media (min-width: 640px) {
+                                                .scaling-fix { transform: scale(1) !important; margin-left: 0 !important; left: 0 !important; width: 100% !important; }
+                                            }
+                                        `}} />
+                                        <div className="scaling-fix w-full h-full flex justify-center">
+                                            {video.platform === 'TikTok' ? (
+                                                <blockquote
+                                                    className="tiktok-embed"
+                                                    cite={video.url}
+                                                    data-video-id=""
+                                                    style={{ width: '326px', height: '100%', margin: 0 }}
+                                                >
+                                                    <section>
+                                                        <a target="_blank" title="@alamin_sarkinmota" href="https://www.tiktok.com/@alamin_sarkinmota?refer=embed">@alamin_sarkinmota</a>
+                                                    </section>
+                                                </blockquote>
+                                            ) : (
+                                                <blockquote
+                                                    className="instagram-media"
+                                                    data-instgrm-captioned
+                                                    data-instgrm-permalink={video.url}
+                                                    data-instgrm-version="14"
+                                                    style={{ background: '#FFF', border: '0', borderRadius: '3px', boxShadow: '0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15)', margin: '0', width: '324px', padding: '0' }}
+                                                >
+                                                </blockquote>
+                                            )}
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
                             {/* Overlay (removed for embeds so user can interact, but kept some info) */}

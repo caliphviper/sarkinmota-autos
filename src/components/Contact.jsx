@@ -18,7 +18,7 @@ const socialLinks = [
         label: 'TikTok',
         handle: '@alamin_sarkinmota',
         url: 'https://www.tiktok.com/@alamin_sarkinmota',
-        color: '#111111',
+        color: '#C9940C',
     },
     {
         icon: <FaInstagram size={20} />,
@@ -108,8 +108,8 @@ export default function Contact() {
                         {/* Address */}
                         <div
                             className={`flex items-start gap-4 p-4 rounded-xl border ${isLight
-                                    ? 'bg-yellow-50 border-yellow-100'
-                                    : 'bg-white/4 border-yellow-900/20'
+                                ? 'bg-yellow-50 border-yellow-100'
+                                : 'bg-white/4 border-yellow-900/20'
                                 }`}
                         >
                             <FaMapMarkerAlt
@@ -133,8 +133,8 @@ export default function Contact() {
                         <a
                             href={`tel:+2347015136111`}
                             className={`flex items-start gap-4 p-4 rounded-xl border no-underline transition-all duration-200 hover:border-yellow-500/50 ${isLight
-                                    ? 'bg-yellow-50 border-yellow-100 hover:bg-yellow-100'
-                                    : 'bg-white/4 border-yellow-900/20 hover:bg-white/6'
+                                ? 'bg-yellow-50 border-yellow-100 hover:bg-yellow-100'
+                                : 'bg-white/4 border-yellow-900/20 hover:bg-white/6'
                                 }`}
                         >
                             <FaPhone
@@ -158,8 +158,8 @@ export default function Contact() {
                         <a
                             href={`mailto:${text.email}`}
                             className={`flex items-start gap-4 p-4 rounded-xl border no-underline transition-all duration-200 hover:border-yellow-500/50 ${isLight
-                                    ? 'bg-yellow-50 border-yellow-100 hover:bg-yellow-100'
-                                    : 'bg-white/4 border-yellow-900/20 hover:bg-white/6'
+                                ? 'bg-yellow-50 border-yellow-100 hover:bg-yellow-100'
+                                : 'bg-white/4 border-yellow-900/20 hover:bg-white/6'
                                 }`}
                         >
                             <FaEnvelope
@@ -182,8 +182,8 @@ export default function Contact() {
                         {/* Hours */}
                         <div
                             className={`flex items-start gap-4 p-4 rounded-xl border ${isLight
-                                    ? 'bg-green-50 border-green-100'
-                                    : 'bg-green-900/10 border-green-900/20'
+                                ? 'bg-green-50 border-green-100'
+                                : 'bg-green-900/10 border-green-900/20'
                                 }`}
                         >
                             <FaClock
@@ -231,8 +231,8 @@ export default function Contact() {
                                         rel="noreferrer"
                                         title={`${s.label}: ${s.handle}`}
                                         className={`flex items-center gap-2 px-4 py-2.5 rounded-xl border font-rajdhani font-600 text-sm no-underline transition-all duration-200 hover:scale-105 hover:shadow-lg cursor-pointer ${isLight
-                                                ? 'bg-white border-gray-200 text-gray-800 hover:border-yellow-300'
-                                                : 'bg-white/6 border-white/10 text-gray-300 hover:border-white/20'
+                                            ? 'bg-white border-gray-200 text-gray-800 hover:border-yellow-300'
+                                            : 'bg-white/6 border-white/10 text-gray-300 hover:border-white/20'
                                             }`}
                                         style={{ '--hover-shadow': `0 8px 20px ${s.color}33` }}
                                     >

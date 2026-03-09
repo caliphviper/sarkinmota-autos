@@ -47,8 +47,8 @@ export default function CarShowcase() {
                     </p>
                 </div>
 
-                {/* Cars Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {/* Cars Grid — 2 col mobile, 2 col tablet, 3 col desktop */}
+                <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
                     {cars.map((car, i) => (
                         <motion.div
                             key={car.id}
@@ -56,44 +56,43 @@ export default function CarShowcase() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: '-60px' }}
                             transition={{ duration: 0.55, delay: i * 0.1, ease: 'easeOut' }}
-                            className={`car-card gold-glow-hover ${isLight ? 'bg-white' : 'bg-[#16161E]'
+                            className={`car-card gold-glow-hover flex flex-col h-full ${isLight ? 'bg-white' : 'bg-[#16161E]'
                                 }`}
                         >
                             {/* Image container */}
                             <div className="relative">
-                                {/* REPLACE WITH REAL IMAGE */}
                                 <img
                                     src={car.image}
                                     alt={car.name}
-                                    className="w-full h-48 object-cover"
+                                    className="w-full h-32 sm:h-48 object-cover"
                                 />
 
                                 {/* SOLD overlay */}
                                 {car.sold && (
                                     <div className="sold-overlay">
-                                        <span className="sold-badge">{text.sold}</span>
+                                        <span className="sold-badge text-[10px] sm:text-xs">{text.sold}</span>
                                     </div>
                                 )}
 
                                 {/* Condition badge */}
-                                <div className="absolute top-3 left-3">
+                                <div className="absolute top-2 left-2 sm:top-3 sm:left-3">
                                     <span
-                                        className={`inline-flex items-center gap-1 px-3 py-1 rounded text-xs font-rajdhani font-700 uppercase tracking-wide ${car.conditionKey === 'conditionNew'
+                                        className={`inline-flex items-center gap-1 px-1.5 py-0.5 sm:px-3 sm:py-1 rounded text-[8px] sm:text-xs font-rajdhani font-700 uppercase tracking-wide ${car.conditionKey === 'conditionNew'
                                             ? 'bg-green-500 text-white'
                                             : 'bg-yellow-600 text-black'
                                             }`}
                                     >
                                         {car.conditionKey === 'conditionNew' ? (
-                                            <FaCheckCircle size={10} />
+                                            <FaCheckCircle size={8} className="sm:w-2.5 sm:h-2.5" />
                                         ) : null}
                                         {text[car.conditionKey]}
                                     </span>
                                 </div>
 
                                 {/* Model badge */}
-                                <div className="absolute top-3 right-3">
+                                <div className="absolute top-2 right-2 sm:top-3 sm:right-3">
                                     <span
-                                        className="px-2 py-1 rounded text-xs font-orbitron font-bold"
+                                        className="px-1.5 py-0.5 sm:px-2 sm:py-1 rounded text-[8px] sm:text-xs font-orbitron font-bold"
                                         style={{ background: 'rgba(212,175,55,0.9)', color: '#0A0A0F' }}
                                     >
                                         {car.badge}
@@ -102,26 +101,24 @@ export default function CarShowcase() {
                             </div>
 
                             {/* Card Content */}
-                            <div className="p-4">
+                            <div className="p-2 sm:p-4 flex-1 flex flex-col">
                                 <h3
-                                    className={`font-orbitron font-bold text-lg mb-1 ${isLight ? 'text-gray-900' : 'text-white'
+                                    className={`font-orbitron font-bold text-sm sm:text-lg mb-0.5 sm:mb-1 line-clamp-1 ${isLight ? 'text-gray-900' : 'text-white'
                                         }`}
                                 >
                                     {car.name}
                                 </h3>
                                 <p
-                                    className={`font-rajdhani text-sm mb-3 ${isLight ? 'text-gray-500' : 'text-gray-400'
+                                    className={`font-rajdhani text-[10px] sm:text-sm mb-1 sm:mb-3 line-clamp-1 ${isLight ? 'text-gray-500' : 'text-gray-400'
                                         }`}
                                 >
                                     {car.model}
                                 </p>
 
                                 {/* Price */}
-                                <div className="gold-text font-orbitron font-black text-xl mb-4">
+                                <div className="gold-text font-orbitron font-black text-xs sm:text-xl mt-auto">
                                     {car.price}
                                 </div>
-
-
                             </div>
                         </motion.div>
                     ))}

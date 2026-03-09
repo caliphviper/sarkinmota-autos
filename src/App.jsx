@@ -12,10 +12,12 @@ import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import WhatsAppFloat from './components/WhatsAppFloat';
+import LanguageModal from './components/LanguageModal';
 
 function AppContent() {
   return (
     <div className="min-h-screen">
+      <LanguageModal />
       <Navbar />
       <main>
         <Hero />

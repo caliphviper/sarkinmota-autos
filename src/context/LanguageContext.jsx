@@ -8,18 +8,27 @@ export function LanguageProvider({ children }) {
         return localStorage.getItem('sarkin-lang') || 'en';
     });
 
+    const [showModal, setShowModal] = useState(() => {
+        return !localStorage.getItem('sarkin-lang');
+    });
+
     useEffect(() => {
         localStorage.setItem('sarkin-lang', lang);
     }, [lang]);
 
     const t = translations[lang];
 
+    const selectLanguage = (selectedLang) => {
+        setLang(selectedLang);
+        setShowModal(false);
+    };
+
     const toggleLang = () => {
         setLang((prev) => (prev === 'en' ? 'ha' : 'en'));
     };
 
     return (
-        <LanguageContext.Provider value={{ lang, toggleLang, t }}>
+        <LanguageContext.Provider value={{ lang, toggleLang, selectLanguage, t, showModal }}>
             {children}
         </LanguageContext.Provider>
     );

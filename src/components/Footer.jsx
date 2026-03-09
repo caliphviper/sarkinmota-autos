@@ -1,4 +1,5 @@
-import { FaCrown, FaTiktok, FaInstagram, FaFacebook, FaWhatsapp, FaEnvelope, FaPhone } from 'react-icons/fa';
+import { FaTiktok, FaInstagram, FaFacebook, FaWhatsapp, FaEnvelope, FaPhone } from 'react-icons/fa';
+import SarkinmotaLogo from './SarkinmotaLogo';
 import { useLanguage } from '../context/LanguageContext';
 import { useTheme } from '../context/ThemeContext';
 
@@ -58,7 +59,7 @@ export default function Footer() {
                     {/* Brand Column */}
                     <div>
                         <div className="flex items-center gap-2 mb-4">
-                            <FaCrown className="text-yellow-400 text-xl" />
+                            <SarkinmotaLogo size={48} />
                             <div>
                                 <div className="font-orbitron font-black text-lg gold-text tracking-wide">SARKINMOTA</div>
                                 <div
@@ -142,8 +143,8 @@ export default function Footer() {
                                     rel="noreferrer"
                                     aria-label={s.label}
                                     className={`w-9 h-9 rounded-lg flex items-center justify-center no-underline transition-all duration-200 hover:scale-110 ${isLight
-                                            ? 'bg-white border border-gray-200 text-gray-600 hover:border-yellow-400'
-                                            : 'bg-white/8 border border-white/10 text-gray-400 hover:border-yellow-600/40'
+                                        ? 'bg-white border border-gray-200 text-gray-600 hover:border-yellow-400'
+                                        : 'bg-white/8 border border-white/10 text-gray-400 hover:border-yellow-600/40'
                                         }`}
                                     style={{ color: s.color }}
                                 >
@@ -163,8 +164,15 @@ export default function Footer() {
                         {footerText.copy}
                     </p>
                     <p className={`font-rajdhani text-sm ${isLight ? 'text-gray-500' : 'text-gray-500'}`}>
-                        Built with ❤️ by{' '}
-                        <span className="gold-text font-700">Sarkinmota Digital</span>
+                        Built by{' '}
+                        <a
+                            href="https://www.instagram.com/iam.caliph/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="gold-text font-700 hover:underline transition-all"
+                        >
+                            Bakhrsweb
+                        </a>
                     </p>
                 </div>
             </div>

@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaCrown, FaSun, FaMoon, FaBars, FaTimes } from 'react-icons/fa';
+import { FaSun, FaMoon, FaBars, FaTimes } from 'react-icons/fa';
 import { useLanguage } from '../context/LanguageContext';
 import { useTheme } from '../context/ThemeContext';
+import SarkinmotaLogo from './SarkinmotaLogo';
 
 const navLinks = [
     { key: 'home', href: '#home' },
@@ -44,9 +45,7 @@ export default function Navbar() {
             <div className="container-app flex items-center justify-between py-4">
                 {/* Logo */}
                 <a href="#home" className="flex items-center gap-2 no-underline group">
-                    <span className="text-yellow-400 text-xl group-hover:scale-110 transition-transform duration-200">
-                        <FaCrown />
-                    </span>
+                    <SarkinmotaLogo size={44} className="group-hover:scale-110 transition-transform duration-200" />
                     <div>
                         <div className="font-orbitron font-black text-base leading-tight gold-text tracking-wide">
                             SARKINMOTA
@@ -70,10 +69,10 @@ export default function Navbar() {
 
                 {/* Controls */}
                 <div className="flex items-center gap-3">
-                    {/* Language Toggle */}
+                    {/* Language Toggle - Desktop Only */}
                     <button
                         onClick={toggleLang}
-                        className={`font-orbitron text-xs font-bold px-3 py-1.5 rounded border transition-all duration-200 cursor-pointer
+                        className={`hidden md:flex font-orbitron text-xs font-bold px-3 py-1.5 rounded border transition-all duration-200 cursor-pointer
               ${isLight
                                 ? 'border-yellow-600/50 text-yellow-700 hover:bg-yellow-50'
                                 : 'border-yellow-600/40 text-yellow-400 hover:bg-yellow-900/20'
@@ -128,6 +127,24 @@ export default function Navbar() {
                                     {t.nav[link.key]}
                                 </a>
                             ))}
+
+                            {/* Mobile Language Toggle */}
+                            <div className="pt-4 mt-2 border-t border-yellow-900/20">
+                                <button
+                                    onClick={() => {
+                                        toggleLang();
+                                        setMobileOpen(false);
+                                    }}
+                                    className={`w-full flex items-center justify-between p-4 rounded-xl border font-orbitron text-sm font-bold
+                    ${isLight
+                                            ? 'bg-yellow-50 border-yellow-200 text-yellow-700'
+                                            : 'bg-white/5 border-yellow-900/30 text-yellow-400'
+                                        }`}
+                                >
+                                    <span>{lang === 'en' ? 'SWITCH TO HAUSA' : 'KOMA ZUWA TURANCI'}</span>
+                                    <span className="text-xl">{lang === 'en' ? '🇳🇬' : '🇬🇧'}</span>
+                                </button>
+                            </div>
                         </div>
                     </motion.div>
                 )}
