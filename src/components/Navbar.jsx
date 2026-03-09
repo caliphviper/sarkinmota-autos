@@ -59,7 +59,7 @@ export default function Navbar() {
                 </a>
 
                 {/* Desktop Links */}
-                <div className={`hidden md:flex items-center gap-8 ${textColor}`}>
+                <div className={`hidden lg:flex items-center gap-8 ${textColor}`}>
                     {navLinks.map((link) => (
                         <a key={link.key} href={link.href} className="nav-link">
                             {t.nav[link.key]}
@@ -72,7 +72,7 @@ export default function Navbar() {
                     {/* Language Toggle - Desktop Only */}
                     <button
                         onClick={toggleLang}
-                        className={`hidden md:flex font-orbitron text-xs font-bold px-3 py-1.5 rounded border transition-all duration-200 cursor-pointer
+                        className={`hidden lg:flex font-orbitron text-xs font-bold px-3 py-1.5 rounded border transition-all duration-200 cursor-pointer
               ${isLight
                                 ? 'border-yellow-600/50 text-yellow-700 hover:bg-yellow-50'
                                 : 'border-yellow-600/40 text-yellow-400 hover:bg-yellow-900/20'
@@ -97,7 +97,7 @@ export default function Navbar() {
                     {/* Mobile Hamburger */}
                     <button
                         onClick={() => setMobileOpen(!mobileOpen)}
-                        className={`md:hidden w-9 h-9 rounded flex items-center justify-center cursor-pointer
+                        className={`lg:hidden w-9 h-9 rounded flex items-center justify-center cursor-pointer
               ${isLight ? 'text-gray-700' : 'text-gray-200'}`}
                     >
                         {mobileOpen ? <FaTimes size={18} /> : <FaBars size={18} />}
@@ -113,7 +113,7 @@ export default function Navbar() {
                         animate={{ opacity: 1, height: 'auto' }}
                         exit={{ opacity: 0, height: 0 }}
                         transition={{ duration: 0.25 }}
-                        className={`md:hidden overflow-hidden ${isLight ? 'bg-white border-t border-gray-100' : 'bg-[#0D0D15] border-t border-yellow-900/30'
+                        className={`lg:hidden overflow-hidden ${isLight ? 'bg-white border-t border-gray-100' : 'bg-[#0D0D15] border-t border-yellow-900/30'
                             }`}
                     >
                         <div className="container-app py-4 flex flex-col gap-4">

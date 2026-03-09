@@ -384,12 +384,24 @@ h3 {
   color: inherit;
   transition: all 0.3s ease;
   outline: none;
+  /* Ensure consistent height across all input types including date/time on mobile */
+  display: block;
+  min-height: 3.2rem;
+  line-height: normal;
 }
 
 .form-input:focus {
   border-color: #D4AF37;
   box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
   background: rgba(255, 255, 255, 0.08);
+}
+
+/* Fix iOS-specific height and padding for date/time inputs */
+input[type="date"].form-input,
+input[type="time"].form-input {
+  -webkit-appearance: none;
+  appearance: none;
+  min-width: 0;
 }
 
 .form-input.light {
