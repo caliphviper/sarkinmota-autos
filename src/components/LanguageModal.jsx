@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaCrown } from 'react-icons/fa';
 import { useLanguage } from '../context/LanguageContext';
 import { useTheme } from '../context/ThemeContext';
+import SarkinmotaLogo from './SarkinmotaLogo';
 
 export default function LanguageModal() {
     const { selectLanguage, showModal } = useLanguage();
@@ -31,9 +31,9 @@ export default function LanguageModal() {
                                 initial={{ rotate: -10, scale: 0.8 }}
                                 animate={{ rotate: 0, scale: 1 }}
                                 transition={{ duration: 0.5, delay: 0.2 }}
-                                className="text-yellow-400 text-5xl mb-4 relative z-10"
+                                className="mb-4 relative z-10"
                             >
-                                <FaCrown />
+                                <SarkinmotaLogo size={70} />
                             </motion.div>
                             <h1 className="font-orbitron font-900 text-2xl gold-text tracking-widest relative z-10">
                                 SARKINMOTA
